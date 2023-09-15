@@ -1,4 +1,4 @@
-import { fetchCategory } from './api.js';
+import { fetchLogin } from './api.js';
 
 let reponse = await fetch('http://localhost:5678/api/works');
 let works = await reponse.json();
@@ -138,16 +138,22 @@ function createPortfolio() {
 }
 
 boutonlogin.addEventListener('click', function(){
-  login.classList.remove("displaynone");
-  displaynone.classList.add("displaynone");
-
+  loginpage();
+  
 
 })
 
-boutonprojets.addEventListener('click', function(){
-  login.classList.add("displaynone");
-  displaynone.classList.remove("displaynone");
-})
+
+
+function loginpage () {
+  window.location.href = "login.html" ;
+}
+
+
+
+
+  
+
 
 
 

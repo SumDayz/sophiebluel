@@ -301,6 +301,10 @@ footer nav ul {
 	width: 85%;
 }
 
+.formlogin input[type="email"] {
+	width: 85%;
+}
+
 .displaynone{
 	display: none;
 }

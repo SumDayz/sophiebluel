@@ -8,5 +8,24 @@ export async function fetchWorks() {
     return await response.json();
   }
 
-  
-  
+
+  export async function fetchLogin(data){
+  const response = await fetch('http://localhost:5678/api/users/login', {
+    method: 'POST',
+
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+
+    body: data,
+    
+  });
+  console.log(data);
+
+
+
+  const finalresponse = await response.json();
+  console.log('=> finalresponse', finalresponse);
+  return finalresponse
+}
