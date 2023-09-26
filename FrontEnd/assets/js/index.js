@@ -8,11 +8,27 @@ console.log(works);
 
 const filterCat = [];
 
+const boutonlogout = document.querySelector(".boutonlogout");
 const catalogue = document.querySelector('#portfolio');
 const login = document.querySelector(".login");
 const boutonlogin = document.querySelector(".boutonlogin");
 const displaynone = document.querySelector("#displaynone");
 const boutonprojets = document.querySelector(".boutonprojets")
+const localStoragetoken = localStorage.getItem("authToken");
+
+
+function checkLogin() {
+  const token = localStorage.getItem('authToken');
+  if (token) {
+    boutonlogin.style.display = 'none';
+    boutonlogout.style.display = 'flex';
+  } else {
+    boutonlogin.style.display = 'flex';
+    boutonlogout.style.display = 'none';
+  }
+}
+
+checkLogin();
 
 async function updateWorks() {
   reponse = await fetch('http://localhost:5678/api/works');
@@ -143,7 +159,11 @@ boutonlogin.addEventListener('click', function(){
 
 })
 
+boutonlogout.addEventListener('click', function(){
+  localStorage.removeItem("authToken");
+  location.reload();
 
+})
 
 function loginpage () {
   window.location.href = "login.html" ;

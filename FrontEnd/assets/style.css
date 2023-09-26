@@ -309,3 +309,18 @@ footer nav ul {
 	display: none;
 }
 
+.erreurcss{
+	text-align: center;
+	color: red;
+}
+
+.edition{
+	background-color: black;
+	height: 45px;
+}
+
+.white{
+	color: white;
+	text-align: center;
+	padding-top: 1.5%;
+}

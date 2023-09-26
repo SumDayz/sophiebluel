@@ -1,33 +1,39 @@
+// login.js
 import { fetchLogin } from './api.js';
+const boutonlogin = document.querySelector(".boutonlogin");
+const loginSubmit = document.getElementById('loginSubmit');
 
-const boutonprojets = document.querySelector(".boutonprojets")
+if (localStorage.getItem("authToken")) {
+  window.location.href = "index.html";
+}
 
-async function getFormInfo() {
-    console.log("base");
-    const loginFormulaire = document.getElementById('loginForm');
-    const loginIdSent = loginFormulaire.querySelector('input[name="emailId"]').value;
-    const pwdIdSent = loginFormulaire.querySelector('input[name="pwdId"]').value;
-    const jsonLogin = {
+loginSubmit.addEventListener('click', async function (event) {
+  event.preventDefault();
+  const loginFormulaire = document.getElementById('loginForm');
+  const loginIdSent = loginFormulaire.querySelector('input[name="emailId"]').value;
+  const pwdIdSent = loginFormulaire.querySelector('input[name="pwdId"]').value;
+  
+  const jsonLogin = {
     email: loginIdSent,
     password: pwdIdSent,
-    };
-    const awaitfetchlogin = await fetchLogin(jsonLogin);
-    console.log(awaitfetchlogin);
-    }
+  };
+
+  const loginInfos = await fetchLogin(jsonLogin);
   
+  const token = loginInfos.token;
+  if (!loginInfos.token){
+    const erreur = document.querySelector('.erreur');
+    const userNotFound = document.createElement('p');
+    userNotFound.classList.add("erreurcss")
+    userNotFound.innerText = "erreur"
+    erreur.appendChild(userNotFound);
+  } else {
+    localStorage.setItem("authToken",`${token}`);
+    boutonlogin.innerText = 'logout';
+    window.location.href = "index.html";
     
-    
-    boutonprojets.addEventListener('click', function(){
-        mainhtml();
-      })
+  }
   
-    function mainhtml () {
-        window.location.href = "index.html";
-    }
-  
-  
-  const loginFormulaire = document.getElementById('loginForm');
-    loginFormulaire.addEventListener('submit', async function (event) {
-      event.preventDefault();
-      await getFormInfo();
-      });
+});
+
+
