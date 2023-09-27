@@ -8,13 +8,15 @@ console.log(works);
 
 const filterCat = [];
 
+const boutonmodale = document.querySelector(".boutonmodale");
+const fermermodale = document.querySelector(".closeModale");
 const boutonlogout = document.querySelector(".boutonlogout");
 const catalogue = document.querySelector('#portfolio');
 const login = document.querySelector(".login");
 const boutonlogin = document.querySelector(".boutonlogin");
 const displaynone = document.querySelector("#displaynone");
 const boutonprojets = document.querySelector(".boutonprojets")
-const localStoragetoken = localStorage.getItem("authToken");
+const edition = document.querySelector(".edition");
 
 
 function checkLogin() {
@@ -169,12 +171,74 @@ function loginpage () {
   window.location.href = "login.html" ;
 }
 
+if (localStorage.getItem("authToken") !=null){
+  console.log("coucou");
+  edition.classList.remove("displaynone");
+  boutonmodale.classList.remove("displaynone");
+}
+
+const modaledisplay = document.querySelector(".modale")
+const main = document.querySelector('main')
+const modaleSection = document.createElement('section'); 
 
 
 
+boutonmodale.addEventListener("click",function(){
+  modaleSection.classList.remove("displaynone");
+})
+
+function createModale() {
   
+  modaleSection.classList.add("displaynone");
+  main.appendChild(modaleSection);
+  modaleSection.innerHTML = `
+    <aside id = "modale" class="modale" aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="modaleTitle"  >
+        <div class="modale-wrapper modale-stop">
+        <a href="#" class="closeModale">fermer<i class="fa-solid fa-x"></i></a>
+        <div class="modale1">
+            <h3 class = "modaleTitle" id="modaleTitle">
+                Galerie Photo
+            </h3>
+            <div class="modaleContentCatalogue" id="modaleContentCatalogue">
+            
+            </div> 
+            <div class="modaleContentAddWorks" id="modaleContentAddworks">
+                
+                <input type="submit" value="Ajouter une photo" id="picAddBtn"></input>
+                <a href="#" id="selfDestructBtn">Supprimer la galerie</a>
+            </div>
+        </div>
+        <div class="modale2 displaynone" >
+            <a href="#" class="arrowLeft"> <i class="fa fa-light fa-arrow-left"></i></a>
+            <h3 class = "modaleTitle" id="modaleTitle">
+                Ajout photo
+            </h3>
+                <div class="divAjoutPhotos" id="divAjoutPhotos">
+                   
+                    <div class="divAddWork">
+                    <div class="addWorkFormDiv">
+                    <form class="addWorkForm" method="post">
+                    <div class="dropzone" id="dropzone" >
+                    <i class="fa fa-thin fa-image faAddImgSquare"></i>
+                    <label class="addImgLabel"><p>+ Ajouter Photo </p><p class="addWorkFormMandatoryStar">*</p><input type="file" accept="image/png, image/jpeg" name="image" id="imageInput" required> </input></label>
+                    <p> jpg, png: 4mo max</p>
+                    </div>
+                      
+                        <label class="addWorkLabel"><p>Titre</p> <p class="addWorkFormMandatoryStar">*</p></label>
+                        <input class="addWorkTitle" name="title" required></input>
+                        <label class="addWorkLabel"><p>Catégorie</p><p class="addWorkFormMandatoryStar">*</p></label>
+                        <select type="select" class="selectCategory" name="category" required>
+                          <option value=""></option>
+                        </select>
+                        <hr class="hrLineAddWorkForm">
+                        <input type="submit" value="Ajouter Photo"  id="confirmAddWork">
+                      </form>
+                    </div>
+                  </div>
+                           
+                </div>
+    </aside>
+        
+    `};
 
-
-
-
-
+    createModale();

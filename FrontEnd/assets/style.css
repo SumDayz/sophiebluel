@@ -316,11 +316,59 @@ footer nav ul {
 
 .edition{
 	background-color: black;
-	height: 45px;
+	height: 60px;
 }
 
 .white{
 	color: white;
 	text-align: center;
-	padding-top: 1.5%;
+	padding-top: 2.5%;
 }
+
+.fa-pen-to-square{
+	color: red;
+	position: absolute;
+	right: 20px;
+}
+
+.modale{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+	
+}
+
+.modales{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+}
+
+.modale-wrapper{
+	background-color: white;
+	border-radius: 10px;
+	width: 50%;
+	height: 50%;
+	padding: 20px;
+	overflow: auto;
+	
+}
+
+.modaleContentCatalogue {
+	display: grid;
+	justify-content: flex-start;
+	width: 80%;
+	margin: auto;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-column-gap: 10px;
+	grid-row-gap: 10px;
+  }
