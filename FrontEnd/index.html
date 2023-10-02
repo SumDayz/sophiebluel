@@ -7,6 +7,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 </head>
@@ -41,8 +42,14 @@
 				<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
 			</article>
 		</section>
+		<section id="works">
+			<h2>Mes projets</h2>
+			<a class="boutonmodale displaynone" href="#">Modale</a>
+			<div id="filters"></div>
+			<div id="gallery" class="gallery"></div>
+		</section>
 		<section id="portfolio" class="positionrelative">
-			<p><a class="boutonmodale displaynone" href="#"><i class="fa-solid fa-pen-to-square">Modale</a>
+			<p>
 			</i></p>
 		</section>
 		<section id="contact">
@@ -76,7 +83,7 @@
             </div>
         </div>
         <div class="modale2 displaynone" >
-            <a href="#" class="arrowLeft"> <i class="fa fa-light fa-arrow-left"></i></a>
+            <a href="#" class="arrowLeft"> <i class="fa-solid fa-arrow-left"></i></a>
             <h3 class = "modaleTitle" id="modaleTitle">
                 Ajout photo
             </h3>
@@ -86,7 +93,7 @@
                     <div class="addWorkFormDiv">
                     <form class="addWorkForm" method="post">
                     <div class="dropzone" id="dropzone" >
-                    <i class="fa fa-thin fa-image faAddImgSquare"></i>
+						<i class="fa-regular fa-image faAddImgSquare"></i>
                     <label class="addImgLabel"><p>+ Ajouter Photo </p><p class="addWorkFormMandatoryStar">*</p><input type="file" accept="image/png, image/jpeg" name="image" id="imageInput" required> </input></label>
                     <p> jpg, png: 4mo max</p>
                     </div>
@@ -115,6 +122,6 @@
 	</nav>
 </footer>
 
-<script type="module" src="./assets/js/index.js"></script>
+<script type="module" src="./assets/js/index1.js"></script>
 </body>
 </html>
