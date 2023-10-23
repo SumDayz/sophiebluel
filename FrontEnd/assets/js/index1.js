@@ -17,17 +17,18 @@ const uploadImg = document.getElementById('uploadImg');
 const selectCategory = document.getElementById('categorie');
 const submitButton = document.querySelector('.valid');
 let preview = document.getElementById('preview');
+const baseURl = "http://localhost:5678"
 
 // --- Récupération des projets de l'API ---
 async function getWorks() {
-    const response = await fetch('http://' + window.location.hostname + ':5678/api/works');
+    const response = await fetch(baseURl+'/api/works');
     const works = await response.json();
     return works;
 }
 
 // --- Récupération des catégories de l'API ---
 async function getCategories() {
-    const response = await fetch('http://' + window.location.hostname + ':5678/api/categories');
+    const response = await fetch(baseURl+'/api/categories');
     const arrCategories = await response.json();
 
     // --- Insertion du bouton `Tous` dans le json ---
